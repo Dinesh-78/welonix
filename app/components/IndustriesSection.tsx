@@ -72,12 +72,6 @@ export default function IndustriesSection() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800/50 mb-4 shadow-sm">
-            <Briefcase className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
-            <span className="text-xs font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-400">
-              Industry Specialization
-            </span>
-          </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
             Domain Intelligence <span className="text-blue-600 dark:text-blue-400">For Every Sector</span>
           </h2>

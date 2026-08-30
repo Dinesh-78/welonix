@@ -10,12 +10,6 @@ export default function HumanPlusAI() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800/50 mb-4 shadow-sm">
-            <Scale className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
-            <span className="text-xs font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-400">
-              Brand Philosophy &amp; Core Differentiator
-            </span>
-          </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
             AI Scales Intelligence. <span className="text-blue-600 dark:text-blue-400">Humans Provide Judgment.</span>
           </h2>
@@ -52,7 +46,7 @@ export default function HumanPlusAI() {
 
             {/* WELONIX Outcome */}
             <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-blue-600 text-white shadow-md shadow-blue-600/20">
-              <Sparkles className="w-5 h-5 text-blue-200" />
+              
               <div className="text-left">
                 <span className="text-[10px] uppercase text-blue-100 block">The WELONIX Standard</span>
                 <span className="text-sm font-extrabold text-white">100% Fidelity Intelligence</span>

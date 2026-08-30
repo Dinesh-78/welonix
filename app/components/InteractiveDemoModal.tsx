@@ -42,7 +42,7 @@ export default function InteractiveDemoModal({ isOpen, onClose }: ModalProps) {
             {/* Header */}
             <div className="mb-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800/50 text-blue-600 dark:text-blue-400 text-xs font-mono font-semibold uppercase mb-3">
-                <Sparkles className="w-3.5 h-3.5" />
+                
                 Interactive Architecture Estimator
               </div>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
