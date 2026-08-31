@@ -60,6 +60,19 @@
   box-shadow: 0 0 40px -5px rgba(37, 99, 235, 0.2);
 }
 
+@keyframes gridMoveHorizontal {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 36px 0;
+  }
+}
+
+.animate-grid-horizontal {
+  animation: gridMoveHorizontal 15s linear infinite;
+}
+
 /* Background Grid Pattern */
 .bg-grid-pattern-light {
   background-size: 36px 36px;

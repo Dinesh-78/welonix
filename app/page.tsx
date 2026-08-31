@@ -9,7 +9,6 @@ import CoreSolutions from "./components/CoreSolutions";
 import ProcessPipeline from "./components/ProcessPipeline";
 import HumanPlusAI from "./components/HumanPlusAI";
 import IndustriesSection from "./components/IndustriesSection";
-import SecurityTrust from "./components/SecurityTrust";
 import ResourcesSection from "./components/ResourcesSection";
 import FinalCTA from "./components/FinalCTA";
 import Footer from "./components/Footer";
@@ -78,8 +77,6 @@ export default function Home() {
         {/* 06 - Industry Specializations */}
         <IndustriesSection />
 
-        {/* 08 - Security, Quality & Trust */}
-        <SecurityTrust />
 
         {/* 09 - Resources & Technical Research */}
         <ResourcesSection />

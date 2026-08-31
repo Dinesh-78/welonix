@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import CustomCursor from "./components/CustomCursor";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,6 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} scroll-smooth`}>
       <body className="bg-white dark:bg-[#05070d] text-slate-900 dark:text-slate-100 antialiased selection:bg-blue-600/30 selection:text-blue-600 transition-colors duration-300">
+        <CustomCursor />
         {children}
       </body>
     </html>
