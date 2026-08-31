@@ -13,9 +13,24 @@ import ResourcesSection from "./components/ResourcesSection";
 import FinalCTA from "./components/FinalCTA";
 import Footer from "./components/Footer";
 import InteractiveDemoModal from "./components/InteractiveDemoModal";
+import AuthModal from "./components/AuthModal";
+import ClientDashboardModal from "./components/ClientDashboardModal";
 
 export default function Home() {
   const [demoModalOpen, setDemoModalOpen] = useState<boolean>(false);
+  const [authModalOpen, setAuthModalOpen] = useState<boolean>(false);
+  const [dashboardOpen, setDashboardOpen] = useState<boolean>(false);
+  const [userProfile, setUserProfile] = useState<{
+    name: string;
+    email: string;
+    company: string;
+    role: string;
+  }>({
+    name: "Alex Morgan",
+    email: "alex.morgan@acmeglobal.ai",
+    company: "Acme Global AI",
+    role: "Head of AI Infrastructure",
+  });
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {
@@ -45,12 +60,21 @@ export default function Home() {
     }
   };
 
+  const handleAuthSuccess = (profile?: { name: string; email: string; company: string; role: string }) => {
+    if (profile) {
+      setUserProfile(profile);
+    }
+    setAuthModalOpen(false);
+    setDashboardOpen(true);
+  };
+
   return (
     <div className="relative min-h-screen bg-white dark:bg-[#05070d] text-slate-900 dark:text-slate-100 font-sans selection:bg-blue-600/20 selection:text-blue-600 overflow-x-hidden transition-colors duration-300">
       
       {/* Primary Navigation Bar */}
       <Navbar 
         onOpenDemo={() => setDemoModalOpen(true)}
+        onOpenAuth={() => setAuthModalOpen(true)}
         theme={theme}
         onToggleTheme={toggleTheme}
       />
@@ -77,7 +101,6 @@ export default function Home() {
         {/* 06 - Industry Specializations */}
         <IndustriesSection />
 
-
         {/* 09 - Resources & Technical Research */}
         <ResourcesSection />
 
@@ -92,6 +115,20 @@ export default function Home() {
       <InteractiveDemoModal
         isOpen={demoModalOpen}
         onClose={() => setDemoModalOpen(false)}
+      />
+
+      {/* Client Sign-In Auth Modal */}
+      <AuthModal
+        isOpen={authModalOpen}
+        onClose={() => setAuthModalOpen(false)}
+        onSuccess={handleAuthSuccess}
+      />
+
+      {/* Client Workspace Dashboard & Document Upload */}
+      <ClientDashboardModal
+        isOpen={dashboardOpen}
+        onClose={() => setDashboardOpen(false)}
+        userProfile={userProfile}
       />
 
     </div>

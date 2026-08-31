@@ -18,11 +18,12 @@ import {
 
 interface NavbarProps {
   onOpenDemo: () => void;
+  onOpenAuth: () => void;
   theme: "light" | "dark";
   onToggleTheme: () => void;
 }
 
-export default function Navbar({ onOpenDemo, theme, onToggleTheme }: NavbarProps) {
+export default function Navbar({ onOpenDemo, onOpenAuth, theme, onToggleTheme }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -104,7 +105,7 @@ export default function Navbar({ onOpenDemo, theme, onToggleTheme }: NavbarProps
                         <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-blue-600 dark:text-blue-400" />
                       </div>
                       <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed">
-                        Neural localization engines with context understanding.
+                        Neural engine localization across 100+ native languages.
                       </p>
                     </div>
                   </Link>
@@ -123,7 +124,7 @@ export default function Navbar({ onOpenDemo, theme, onToggleTheme }: NavbarProps
                         <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-blue-600 dark:text-blue-400" />
                       </div>
                       <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed">
-                        Multi-modal dataset curation, cleaning & tokenization.
+                        High-precision multi-modal datasets for LLM training.
                       </p>
                     </div>
                   </Link>
@@ -142,7 +143,7 @@ export default function Navbar({ onOpenDemo, theme, onToggleTheme }: NavbarProps
                         <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-blue-600 dark:text-blue-400" />
                       </div>
                       <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed">
-                        Model benchmarking for safety, bias & domain accuracy.
+                        Benchmark accuracy, safety, and domain alignment.
                       </p>
                     </div>
                   </Link>
@@ -190,12 +191,12 @@ export default function Navbar({ onOpenDemo, theme, onToggleTheme }: NavbarProps
               Resources
             </Link>
 
-            <Link 
-              href="#quality" 
-              className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
+            <button 
+              onClick={onOpenAuth}
+              className="px-3.5 py-2 rounded-lg text-sm font-medium text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/40 transition-all"
             >
-              Trust & Security
-            </Link>
+              Client Portal
+            </button>
           </nav>
 
           {/* Right Action CTA & Theme Switcher */}
@@ -216,7 +217,7 @@ export default function Navbar({ onOpenDemo, theme, onToggleTheme }: NavbarProps
             </button>
 
             <button
-              onClick={onOpenDemo}
+              onClick={onOpenAuth}
               className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white transition-colors px-2 py-1"
             >
               Sign In
