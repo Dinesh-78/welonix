@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Cpu } from "lucide-react";
+import { SERVICE_CATEGORIES } from "../lib/servicesData";
 
 export default function Footer() {
   return (
@@ -23,7 +24,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm leading-relaxed">
-              WELONIX sits at the intersection of AI, Language Intelligence, Data Intelligence, and Human Judgment — helping global organizations build, evaluate, and operate frontier AI systems.
+              WELONIX sits at the intersection of AI, Language Intelligence, Data Intelligence, and Human Judgment — helping global organizations build, evaluate, and operate frontier AI systems across 10 specialized domain sectors.
             </p>
 
             {/* Live System Status Pill */}
@@ -33,74 +34,71 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Solutions Column */}
+          {/* Major Service Categories */}
           <div>
             <h4 className="text-xs uppercase font-mono tracking-widest text-slate-900 dark:text-slate-200 font-bold mb-4">
-              Solutions
+              AI &amp; Data Services
             </h4>
-            <ul className="space-y-2.5 text-xs">
+            <ul className="space-y-2 text-xs">
+              {SERVICE_CATEGORIES.slice(0, 5).map((cat) => (
+                <li key={cat.slug}>
+                  <Link 
+                    href={`/services/${cat.slug}`} 
+                    className="hover:text-blue-600 dark:hover:text-white transition-colors"
+                  >
+                    {cat.name}
+                  </Link>
+                </li>
+              ))}
               <li>
-                <Link href="#solutions" className="hover:text-blue-600 dark:hover:text-white transition-colors">AI Translation</Link>
-              </li>
-              <li>
-                <Link href="#solutions" className="hover:text-blue-600 dark:hover:text-white transition-colors">AI Data &amp; Annotation</Link>
-              </li>
-              <li>
-                <Link href="#solutions" className="hover:text-blue-600 dark:hover:text-white transition-colors">LLM Evaluation</Link>
-              </li>
-              <li>
-                <Link href="#solutions" className="hover:text-blue-600 dark:hover:text-white transition-colors">Document AI</Link>
-              </li>
-              <li>
-                <Link href="#human-ai" className="hover:text-blue-600 dark:hover:text-white transition-colors">Human-in-the-Loop QA</Link>
+                <Link href="/services" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+                  View All 60+ Services →
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Industries Column */}
+          {/* Localization & Media Services */}
           <div>
             <h4 className="text-xs uppercase font-mono tracking-widest text-slate-900 dark:text-slate-200 font-bold mb-4">
-              Industries
+              Localization &amp; Media
             </h4>
-            <ul className="space-y-2.5 text-xs">
-              <li>
-                <Link href="#industries" className="hover:text-blue-600 dark:hover:text-white transition-colors">Technology &amp; SaaS</Link>
-              </li>
-              <li>
-                <Link href="#industries" className="hover:text-blue-600 dark:hover:text-white transition-colors">Healthcare &amp; Life Sciences</Link>
-              </li>
-              <li>
-                <Link href="#industries" className="hover:text-blue-600 dark:hover:text-white transition-colors">Financial Services</Link>
-              </li>
-              <li>
-                <Link href="#industries" className="hover:text-blue-600 dark:hover:text-white transition-colors">Legal &amp; Compliance</Link>
-              </li>
-              <li>
-                <Link href="#industries" className="hover:text-blue-600 dark:hover:text-white transition-colors">E-Commerce &amp; Media</Link>
-              </li>
+            <ul className="space-y-2 text-xs">
+              {SERVICE_CATEGORIES.slice(5).map((cat) => (
+                <li key={cat.slug}>
+                  <Link 
+                    href={`/services/${cat.slug}`} 
+                    className="hover:text-blue-600 dark:hover:text-white transition-colors"
+                  >
+                    {cat.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Trust & Company Column */}
+          {/* Trust & Compliance */}
           <div>
             <h4 className="text-xs uppercase font-mono tracking-widest text-slate-900 dark:text-slate-200 font-bold mb-4">
               Trust &amp; Security
             </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <Link href="#quality" className="hover:text-blue-600 dark:hover:text-white transition-colors">SOC 2 Type II Compliance</Link>
+                <span className="hover:text-blue-600 dark:hover:text-white transition-colors cursor-default">SOC 2 Type II Certified</span>
               </li>
               <li>
-                <Link href="#quality" className="hover:text-blue-600 dark:hover:text-white transition-colors">Zero Data Retention</Link>
+                <span className="hover:text-blue-600 dark:hover:text-white transition-colors cursor-default">ISO 17100 &amp; ISO 18587</span>
               </li>
               <li>
-                <Link href="#quality" className="hover:text-blue-600 dark:hover:text-white transition-colors">Private VPC &amp; Air-Gap</Link>
+                <span className="hover:text-blue-600 dark:hover:text-white transition-colors cursor-default">HIPAA &amp; GDPR Compliant</span>
               </li>
               <li>
-                <Link href="#resources" className="hover:text-blue-600 dark:hover:text-white transition-colors">LLM Benchmarks 2026</Link>
+                <span className="hover:text-blue-600 dark:hover:text-white transition-colors cursor-default">Zero Data Retention SLA</span>
               </li>
               <li>
-                <Link href="#resources" className="hover:text-blue-600 dark:hover:text-white transition-colors">Documentation &amp; API</Link>
+                <Link href="/services" className="hover:text-blue-600 dark:hover:text-white transition-colors">
+                  Services Directory
+                </Link>
               </li>
             </ul>
           </div>
@@ -113,9 +111,9 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} WELONIX Inc. All rights reserved. AI × LANGUAGE × DATA.
           </div>
           <div className="flex items-center gap-6">
-            <a href="#quality" className="hover:text-blue-600 dark:hover:text-slate-300 transition-colors">Privacy Policy</a>
-            <a href="#quality" className="hover:text-blue-600 dark:hover:text-slate-300 transition-colors">Terms of Service</a>
-            <a href="#quality" className="hover:text-blue-600 dark:hover:text-slate-300 transition-colors">Security Disclosures</a>
+            <span className="hover:text-blue-600 dark:hover:text-slate-300 transition-colors cursor-default">Privacy Policy</span>
+            <span className="hover:text-blue-600 dark:hover:text-slate-300 transition-colors cursor-default">Terms of Service</span>
+            <span className="hover:text-blue-600 dark:hover:text-slate-300 transition-colors cursor-default">Security Disclosures</span>
           </div>
         </div>
 
