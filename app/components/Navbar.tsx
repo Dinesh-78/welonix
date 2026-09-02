@@ -102,32 +102,9 @@ export default function Navbar({ onOpenDemo, onOpenAuth, theme, onToggleTheme }:
               href="/services" 
               className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
             >
-              All Services
+             platform
             </Link>
-
-            <Link 
-              href="/#industries" 
-              className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
-            >
-              Industries
-            </Link>
-
-            <Link 
-              href="/#resources" 
-              className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
-            >
-              Resources
-            </Link>
-
-            <button 
-              onClick={onOpenAuth}
-              className="px-3.5 py-2 rounded-lg text-sm font-medium text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/40 transition-all"
-            >
-              Client Portal
-            </button>
-
-                {/* Services Mega Menu Trigger */}
-            <div 
+             <div 
               className="relative"
               onMouseEnter={() => setServicesOpen(true)}
               onMouseLeave={() => setServicesOpen(false)}
@@ -259,6 +236,30 @@ export default function Navbar({ onOpenDemo, onOpenAuth, theme, onToggleTheme }:
                 </div>
               )}
             </div>
+
+            <Link 
+              href="/#industries" 
+              className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
+            >
+              Industries
+            </Link>
+
+            <Link 
+              href="/#resources" 
+              className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
+            >
+              Resources
+            </Link>
+
+            <button 
+              onClick={onOpenAuth}
+              className="px-3.5 py-2 rounded-lg text-sm font-medium text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/40 transition-all"
+            >
+              Client Portal
+            </button>
+
+                {/* Services Mega Menu Trigger */}
+           
           </nav>
 
           {/* Right Action CTA & Theme Switcher */}
