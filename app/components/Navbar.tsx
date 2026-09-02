@@ -2,14 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { 
-  ChevronDown, 
+import {
+  ChevronDown,
   ChevronRight,
-  Cpu, 
-  Sun, 
-  Moon, 
-  Menu, 
-  X, 
+  Cpu,
+  Sun,
+  Moon,
+  Menu,
+  X,
   ArrowRight,
   Database,
   Languages,
@@ -68,15 +68,14 @@ export default function Navbar({ onOpenDemo, onOpenAuth, theme, onToggleTheme }:
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
           ? "bg-white/90 dark:bg-[#05070d]/90 backdrop-blur-xl border-b border-slate-200 dark:border-blue-950/40 py-3 shadow-sm dark:shadow-black/50"
           : "bg-white/70 dark:bg-[#05070d]/70 backdrop-blur-md py-4 border-b border-slate-200/50 dark:border-white/5"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          
+
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
             <div className="w-9 h-9 rounded-xl bg-blue-600/10 border border-blue-600/20 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm">
@@ -95,29 +94,28 @@ export default function Navbar({ onOpenDemo, onOpenAuth, theme, onToggleTheme }:
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
-            
-        
 
-            <Link 
-              href="/services" 
+
+
+            <Link
+              href="/services"
               className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
             >
-             platform
+              Platform
             </Link>
-             <div 
+            <div
               className="relative"
               onMouseEnter={() => setServicesOpen(true)}
               onMouseLeave={() => setServicesOpen(false)}
             >
-              <button 
-                className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium transition-all ${
-                  servicesOpen 
-                    ? "text-blue-600 dark:text-white bg-blue-50 dark:bg-blue-600/10" 
+              <button
+                className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium transition-all ${servicesOpen
+                    ? "text-blue-600 dark:text-white bg-blue-50 dark:bg-blue-600/10"
                     : "text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5"
-                }`}
+                  }`}
                 aria-expanded={servicesOpen}
               >
-               
+
                 <span>Solutions</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180 text-blue-600 dark:text-blue-400" : "text-slate-400"}`} />
               </button>
@@ -125,15 +123,15 @@ export default function Navbar({ onOpenDemo, onOpenAuth, theme, onToggleTheme }:
               {/* Mega Dropdown Panel */}
               {servicesOpen && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[920px] rounded-2xl bg-white dark:bg-[#070b16]/98 backdrop-blur-2xl border border-slate-200 dark:border-blue-500/20 shadow-2xl shadow-slate-300/50 dark:shadow-blue-950/60 overflow-hidden grid grid-cols-12 animate-in fade-in slide-in-from-top-2 duration-200">
-                  
+
                   {/* Left Column: 10 Main Categories List */}
                   <div className="col-span-5 bg-slate-50/80 dark:bg-[#040711]/90 p-3 border-r border-slate-200 dark:border-slate-800/80 max-h-[520px] overflow-y-auto space-y-1 scrollbar-thin">
                     <div className="px-3 py-1.5 flex items-center justify-between">
                       <span className="text-[10px] uppercase font-mono tracking-widest text-slate-400 font-bold">
                         Service Categories (10)
                       </span>
-                      <Link 
-                        href="/services" 
+                      <Link
+                        href="/services"
                         onClick={() => setServicesOpen(false)}
                         className="text-[11px] font-medium text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-0.5"
                       >
@@ -150,23 +148,20 @@ export default function Navbar({ onOpenDemo, onOpenAuth, theme, onToggleTheme }:
                           onClick={() => {
                             setActiveCategorySlug(cat.slug);
                           }}
-                          className={`w-full text-left p-2.5 rounded-xl transition-all flex items-center justify-between text-xs group ${
-                            isActive
+                          className={`w-full text-left p-2.5 rounded-xl transition-all flex items-center justify-between text-xs group ${isActive
                               ? "bg-blue-600 text-white shadow-md shadow-blue-600/20 font-semibold"
                               : "text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-800/60 hover:text-blue-600 dark:hover:text-white"
-                          }`}
+                            }`}
                         >
                           <div className="flex items-center gap-2.5 min-w-0">
-                            <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
-                              isActive ? "bg-white/20 text-white" : "bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white"
-                            }`}>
+                            <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-colors ${isActive ? "bg-white/20 text-white" : "bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white"
+                              }`}>
                               {ICON_MAP[cat.iconName] || <Cpu className="w-3.5 h-3.5" />}
                             </div>
                             <span className="truncate">{cat.name}</span>
                           </div>
-                          <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full shrink-0 ${
-                            isActive ? "bg-white/20 text-white" : "bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400"
-                          }`}>
+                          <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full shrink-0 ${isActive ? "bg-white/20 text-white" : "bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400"
+                            }`}>
                             {cat.items.length}
                           </span>
                         </button>
@@ -180,7 +175,7 @@ export default function Navbar({ onOpenDemo, onOpenAuth, theme, onToggleTheme }:
                       {/* Active Category Header */}
                       <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100 dark:border-slate-800">
                         <div>
-                          <Link 
+                          <Link
                             href={`/services/${activeCategory.slug}`}
                             onClick={() => setServicesOpen(false)}
                             className="group flex items-center gap-1.5 text-base font-bold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -237,34 +232,39 @@ export default function Navbar({ onOpenDemo, onOpenAuth, theme, onToggleTheme }:
               )}
             </div>
 
-            <Link 
-              href="/#industries" 
+            <Link
+              href="/#industries"
               className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
             >
               Industries
             </Link>
 
-            <Link 
-              href="/#resources" 
+            <Link
+              href="/#resources"
               className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
             >
               Resources
             </Link>
-
-            <button 
+            <Link
+              href="/#contact"
+              className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
+            >
+              Contact
+            </Link>
+            <button
               onClick={onOpenAuth}
               className="px-3.5 py-2 rounded-lg text-sm font-medium text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/40 transition-all"
             >
               Client Portal
             </button>
 
-                {/* Services Mega Menu Trigger */}
-           
+            {/* Services Mega Menu Trigger */}
+
           </nav>
 
           {/* Right Action CTA & Theme Switcher */}
           <div className="hidden md:flex items-center gap-3">
-            
+
             {/* Theme Toggle Button */}
             <button
               onClick={onToggleTheme}
@@ -322,8 +322,8 @@ export default function Navbar({ onOpenDemo, onOpenAuth, theme, onToggleTheme }:
               <span className="text-xs uppercase font-mono tracking-widest text-slate-400 font-bold">
                 Services (10 Categories)
               </span>
-              <Link 
-                href="/services" 
+              <Link
+                href="/services"
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-xs text-blue-600 dark:text-blue-400 font-medium"
               >
