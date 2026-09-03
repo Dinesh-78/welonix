@@ -49,11 +49,266 @@ const translationExamples = [
   },
 ];
 
-const stats = [
-  { value: "10K+", label: "Happy Clients", subtext: "Global Enterprises" },
-  { value: "50K+", label: "Projects Completed", subtext: "Across Industries" },
-  { value: "100+", label: "Languages Supported", subtext: "Native Linguistic Models" },
-  { value: "99.5%", label: "Accuracy Rate", subtext: "Human-Verified Quality" },
+const trustedBrandsRow1 = [
+  {
+    name: "HDFC Bank",
+    logo: (
+      <div className="flex items-center gap-2">
+        <div className="w-6 h-6 bg-[#004B8D] border border-rose-500 rounded flex items-center justify-center p-0.5 shrink-0">
+          <div className="w-full h-full bg-[#ED1C24] flex items-center justify-center">
+            <div className="w-2 h-2 bg-white" />
+          </div>
+        </div>
+        <span className="font-extrabold tracking-tight text-[#004B8D] dark:text-blue-400 text-sm">HDFC BANK</span>
+      </div>
+    ),
+  },
+  {
+    name: "Godrej",
+    logo: (
+      <span className="font-serif italic font-bold text-lg text-pink-600 dark:text-pink-400 tracking-wide">
+        Godrej
+      </span>
+    ),
+  },
+  {
+    name: "IDFC FIRST Bank",
+    logo: (
+      <div className="flex items-center gap-2">
+        <div className="w-6 h-6 bg-[#991b1b] rounded flex items-center justify-center text-white text-[10px] font-black leading-none">
+          ≡
+        </div>
+        <div className="flex flex-col text-left leading-tight">
+          <span className="font-black text-xs text-[#991b1b] dark:text-red-400 tracking-tighter">IDFC FIRST</span>
+          <span className="text-[9px] font-bold text-slate-700 dark:text-slate-300">Bank</span>
+        </div>
+      </div>
+    ),
+  },
+  {
+    name: "Kotak",
+    logo: (
+      <div className="flex items-center gap-1.5">
+        <div className="w-6 h-6 rounded-full bg-[#003366] text-white flex items-center justify-center text-xs font-bold">
+          ∞
+        </div>
+        <span className="font-extrabold text-sm text-[#e11d48] dark:text-rose-400">kotak</span>
+      </div>
+    ),
+  },
+  {
+    name: "Cipla",
+    logo: (
+      <span className="font-black text-base tracking-tight text-[#1e3a8a] dark:text-blue-300 flex items-center">
+        C<span className="text-[#f97316]">i</span>pla
+      </span>
+    ),
+  },
+  {
+    name: "CNBC",
+    logo: (
+      <div className="flex items-center gap-1.5">
+        <div className="flex -space-x-1">
+          <span className="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block" />
+          <span className="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block" />
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block" />
+          <span className="w-2.5 h-2.5 rounded-full bg-sky-500 inline-block" />
+        </div>
+        <span className="font-black text-sm tracking-tighter text-slate-900 dark:text-white">CNBC</span>
+      </div>
+    ),
+  },
+  {
+    name: "DHL",
+    logo: (
+      <div className="px-2.5 py-0.5 bg-[#FFCC00] rounded flex items-center justify-center">
+        <span className="font-black text-sm italic tracking-widest text-[#D40511]">DHL</span>
+      </div>
+    ),
+  },
+  {
+    name: "MSRDC",
+    logo: (
+      <div className="flex items-center gap-2">
+        <div className="w-6 h-5 bg-rose-600 rounded-t-full flex items-end justify-center">
+          <div className="w-2 h-2 bg-white rounded-t-sm" />
+        </div>
+        <span className="font-extrabold text-xs tracking-wider text-slate-800 dark:text-slate-200">MSRDC</span>
+      </div>
+    ),
+  },
+  {
+    name: "TCS",
+    logo: (
+      <div className="flex items-center gap-1.5">
+        <span className="font-black text-base text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
+          tcs
+        </span>
+        <div className="flex flex-col text-[8px] font-bold text-slate-500 dark:text-slate-400 leading-none">
+          <span>TATA</span>
+          <span>CONSULTANCY</span>
+          <span>SERVICES</span>
+        </div>
+      </div>
+    ),
+  },
+  {
+    name: "BOSCH",
+    logo: (
+      <div className="flex items-center gap-1.5">
+        <div className="w-5 h-5 rounded-full border-2 border-slate-400 flex items-center justify-center text-[9px] font-extrabold text-slate-600 dark:text-slate-300">
+          ⚙
+        </div>
+        <span className="font-black text-sm tracking-wider text-[#e11d48] dark:text-rose-500">BOSCH</span>
+      </div>
+    ),
+  },
+  {
+    name: "NTPC",
+    logo: (
+      <div className="px-2 py-1 bg-[#0284c7] rounded text-white flex items-center gap-1 text-[11px] font-bold">
+        <span>एनटीपीसी</span>
+        <span className="font-black">NTPC</span>
+      </div>
+    ),
+  },
+  {
+    name: "NSDL",
+    logo: (
+      <div className="flex items-center gap-1.5">
+        <div className="w-5 h-5 rounded-full bg-amber-500 flex items-center justify-center text-white text-xs font-bold">
+          ✹
+        </div>
+        <div className="flex flex-col text-left leading-none">
+          <span className="font-extrabold text-xs text-[#7c2d12] dark:text-amber-400">NSDL</span>
+          <span className="text-[7px] text-slate-400 font-medium">Technology, Trust &amp; Reach</span>
+        </div>
+      </div>
+    ),
+  },
+];
+
+const trustedBrandsRow2 = [
+  {
+    name: "Liberty General Insurance",
+    logo: (
+      <div className="flex items-center gap-1.5">
+        <span className="text-sm">🗽</span>
+        <div className="flex flex-col text-left leading-none">
+          <span className="font-bold text-xs text-slate-900 dark:text-slate-100">Liberty</span>
+          <span className="text-[8px] text-slate-500 dark:text-slate-400">General Insurance</span>
+        </div>
+      </div>
+    ),
+  },
+  {
+    name: "L&T Infotech",
+    logo: (
+      <div className="flex items-center gap-1.5">
+        <div className="w-6 h-6 rounded-full bg-amber-400 text-slate-900 font-black text-[9px] flex items-center justify-center">
+          L&amp;T
+        </div>
+        <span className="font-bold text-xs text-slate-800 dark:text-slate-200">Infotech</span>
+      </div>
+    ),
+  },
+  {
+    name: "Mahindra Lifespaces",
+    logo: (
+      <div className="flex flex-col text-left leading-none">
+        <span className="font-extrabold text-xs text-rose-600 dark:text-rose-400">Mahindra</span>
+        <span className="text-[9px] text-slate-600 dark:text-slate-400 font-medium">Lifespaces</span>
+      </div>
+    ),
+  },
+  {
+    name: "PHILIPS",
+    logo: (
+      <span className="font-black text-sm tracking-widest text-[#0066cc] dark:text-blue-400">
+        PHILIPS
+      </span>
+    ),
+  },
+  {
+    name: "Schneider Electric",
+    logo: (
+      <div className="flex items-center gap-1.5">
+        <span className="font-black text-xs text-[#009944] dark:text-emerald-400">Schneider</span>
+        <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-500">Electric</span>
+      </div>
+    ),
+  },
+  {
+    name: "KEC International",
+    logo: (
+      <div className="flex flex-col text-left leading-none">
+        <span className="font-black text-xs text-indigo-900 dark:text-indigo-300 tracking-wider">KEC</span>
+        <span className="text-[7px] font-bold text-slate-500 dark:text-slate-400">INTERNATIONAL LIMITED</span>
+      </div>
+    ),
+  },
+  {
+    name: "Lufthansa",
+    logo: (
+      <div className="flex items-center gap-1.5">
+        <div className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center text-[#05164d] text-xs font-bold">
+          🕊
+        </div>
+        <span className="font-extrabold text-xs text-[#05164d] dark:text-blue-300">Lufthansa</span>
+      </div>
+    ),
+  },
+  {
+    name: "LUPIN",
+    logo: (
+      <div className="flex items-center gap-1">
+        <span className="text-emerald-500 font-bold text-xs">🌿</span>
+        <span className="font-black text-xs text-emerald-600 dark:text-emerald-400 tracking-wider">LUPIN</span>
+      </div>
+    ),
+  },
+  {
+    name: "YES BANK",
+    logo: (
+      <div className="px-2 py-0.5 bg-sky-700 rounded flex items-center gap-1">
+        <span className="text-rose-500 font-black text-xs">✓</span>
+        <span className="font-black text-xs text-white tracking-tight">YES BANK</span>
+      </div>
+    ),
+  },
+  {
+    name: "Varun Beverages",
+    logo: (
+      <div className="flex items-center gap-1.5">
+        <div className="w-5 h-5 bg-indigo-900 text-sky-400 font-black text-[9px] rounded flex items-center justify-center">
+          V3
+        </div>
+        <span className="text-[10px] font-bold text-slate-700 dark:text-slate-300">Varun Beverages Ltd</span>
+      </div>
+    ),
+  },
+  {
+    name: "HSBC",
+    logo: (
+      <div className="flex items-center gap-1.5">
+        <div className="w-5 h-4 bg-white border border-rose-600 relative flex items-center justify-center overflow-hidden">
+          <div className="w-3 h-3 bg-rose-600 rotate-45" />
+        </div>
+        <span className="font-black text-xs text-slate-900 dark:text-white tracking-widest">HSBC</span>
+      </div>
+    ),
+  },
+  {
+    name: "Sun Pharma",
+    logo: (
+      <div className="flex items-center gap-1.5">
+        <div className="w-5 h-5 rounded-full border-2 border-amber-500 flex items-center justify-center text-amber-500 text-[10px] font-bold">
+          ☼
+        </div>
+        <span className="font-extrabold text-xs text-slate-900 dark:text-white tracking-tight">SUN PHARMA</span>
+      </div>
+    ),
+  },
 ];
 
 export default function Hero({ onOpenDemo }: HeroProps) {
@@ -361,26 +616,45 @@ export default function Hero({ onOpenDemo }: HeroProps) {
 
         </div>
 
-        {/* Integrated Stats Counter Bar matching LinguaFlow */}
+        {/* Scrollable Prestigious Clients Brands Section */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#0b0f19] border border-slate-200/90 dark:border-slate-800/90 shadow-xl shadow-slate-200/50 dark:shadow-none grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-slate-200 dark:divide-slate-800"
+          className="w-full pt-6 flex flex-col items-center"
         >
-          {stats.map((stat, idx) => (
-            <div key={idx} className={`pt-4 md:pt-0 flex flex-col items-center ${idx === 0 ? "" : "md:pl-6"}`}>
-              <div className="text-3xl sm:text-4xl font-extrabold text-indigo-600 dark:text-indigo-400 tracking-tight mb-1">
-                {stat.value}
-              </div>
-              <div className="text-sm font-bold text-slate-900 dark:text-slate-100 mb-0.5">
-                {stat.label}
-              </div>
-              <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                {stat.subtext}
-              </div>
+          {/* Top Pill Badge matching image */}
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200/80 dark:border-blue-800/60 text-blue-600 dark:text-blue-400 text-xs font-bold tracking-widest uppercase mb-8 shadow-sm">
+            <span>SOME OF OUR PRESTIGIOUS CLIENTS</span>
+          </div>
+
+          {/* Marquee Row 1 (Scrolling Left) */}
+          <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)] mb-4">
+            <div className="flex gap-4 animate-marquee hover:[animation-play-state:paused] py-1.5">
+              {[...trustedBrandsRow1, ...trustedBrandsRow1].map((brand, idx) => (
+                <div 
+                  key={idx}
+                  className="flex-shrink-0 flex items-center justify-center px-6 py-4 h-16 min-w-[170px] rounded-xl bg-white dark:bg-[#0b0f19] border border-slate-200/90 dark:border-slate-800/90 shadow-sm hover:shadow-md hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-200 cursor-pointer"
+                >
+                  {brand.logo}
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Marquee Row 2 (Scrolling Right) */}
+          <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
+            <div className="flex gap-4 animate-marquee-reverse hover:[animation-play-state:paused] py-1.5">
+              {[...trustedBrandsRow2, ...trustedBrandsRow2].map((brand, idx) => (
+                <div 
+                  key={idx}
+                  className="flex-shrink-0 flex items-center justify-center px-6 py-4 h-16 min-w-[170px] rounded-xl bg-white dark:bg-[#0b0f19] border border-slate-200/90 dark:border-slate-800/90 shadow-sm hover:shadow-md hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-200 cursor-pointer"
+                >
+                  {brand.logo}
+                </div>
+              ))}
+            </div>
+          </div>
         </motion.div>
 
       </div>

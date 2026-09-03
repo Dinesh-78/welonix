@@ -20,9 +20,9 @@ import {
   Video,
   Award,
   Layout,
-  Grid
 } from "lucide-react";
-import { SERVICE_CATEGORIES, ServiceCategory } from "../lib/servicesData";
+import { SERVICE_CATEGORIES} from "../lib/servicesData";
+import LanguageTranslator from "./LanguageTranslator";
 
 interface NavbarProps {
   onOpenDemo: () => void;
@@ -84,7 +84,10 @@ export default function Navbar({ onOpenDemo, onOpenAuth, theme, onToggleTheme }:
             <div className="flex flex-col">
               <span className="text-lg font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-1.5 font-sans">
                 WELONIX
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+                </span>
               </span>
               <span className="text-[9px] uppercase tracking-widest text-slate-500 dark:text-blue-300/70 font-medium">
                 AI Platform
@@ -264,7 +267,7 @@ export default function Navbar({ onOpenDemo, onOpenAuth, theme, onToggleTheme }:
           </nav>
 
           {/* Right Action CTA & Theme Switcher */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-2 lg:gap-3">
 
             {/* Theme Toggle Button */}
             <button
@@ -279,6 +282,9 @@ export default function Navbar({ onOpenDemo, onOpenAuth, theme, onToggleTheme }:
                 <Sun className="w-4 h-4 text-blue-400" />
               )}
             </button>
+
+            {/* Language Translate Selector - Beside Sign In option */}
+            <LanguageTranslator />
 
             <button
               onClick={onOpenAuth}
@@ -297,6 +303,7 @@ export default function Navbar({ onOpenDemo, onOpenAuth, theme, onToggleTheme }:
 
           {/* Mobile Menu Toggle Button */}
           <div className="lg:hidden flex items-center gap-2">
+            <LanguageTranslator isMobile />
             <button
               onClick={onToggleTheme}
               className="p-2 rounded-lg text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10"
