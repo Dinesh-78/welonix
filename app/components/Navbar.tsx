@@ -103,7 +103,21 @@ export default function Navbar({ onOpenDemo, onOpenAuth, theme, onToggleTheme }:
             >
               Platform
             </Link>
-            <div
+
+            <Link
+              href="/#industries"
+              className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
+            >
+              Industries
+            </Link>
+
+            <Link
+              href="/#resources"
+              className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
+            >
+              Resources
+            </Link>
+                        <div
               className="relative"
               onMouseEnter={() => setServicesOpen(true)}
               onMouseLeave={() => setServicesOpen(false)}
@@ -232,19 +246,6 @@ export default function Navbar({ onOpenDemo, onOpenAuth, theme, onToggleTheme }:
               )}
             </div>
 
-            <Link
-              href="/#industries"
-              className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
-            >
-              Industries
-            </Link>
-
-            <Link
-              href="/#resources"
-              className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
-            >
-              Resources
-            </Link>
             <Link
               href="/#contact"
               className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
