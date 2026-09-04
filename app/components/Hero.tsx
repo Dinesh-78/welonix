@@ -628,10 +628,10 @@ export default function Hero({ onOpenDemo }: HeroProps) {
             <span>SOME OF OUR PRESTIGIOUS CLIENTS</span>
           </div>
 
-          {/* Marquee Row 1 (Scrolling Left) */}
+          {/* Marquee Row 1 (Scrolling Left to Right) */}
           <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)] mb-4">
-            <div className="flex gap-4 animate-marquee hover:[animation-play-state:paused] py-1.5">
-              {[...trustedBrandsRow1, ...trustedBrandsRow1].map((brand, idx) => (
+            <div className="flex gap-4 animate-marquee-reverse hover:[animation-play-state:paused] py-1.5">
+              {[...trustedBrandsRow1, ...trustedBrandsRow1, ...trustedBrandsRow1, ...trustedBrandsRow1].map((brand, idx) => (
                 <div 
                   key={idx}
                   className="flex-shrink-0 flex items-center justify-center px-6 py-4 h-16 min-w-[170px] rounded-xl bg-white dark:bg-[#0b0f19] border border-slate-200/90 dark:border-slate-800/90 shadow-sm hover:shadow-md hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-200 cursor-pointer"
@@ -642,19 +642,7 @@ export default function Hero({ onOpenDemo }: HeroProps) {
             </div>
           </div>
 
-          {/* Marquee Row 2 (Scrolling Right) */}
-          <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
-            <div className="flex gap-4 animate-marquee-reverse hover:[animation-play-state:paused] py-1.5">
-              {[...trustedBrandsRow2, ...trustedBrandsRow2].map((brand, idx) => (
-                <div 
-                  key={idx}
-                  className="flex-shrink-0 flex items-center justify-center px-6 py-4 h-16 min-w-[170px] rounded-xl bg-white dark:bg-[#0b0f19] border border-slate-200/90 dark:border-slate-800/90 shadow-sm hover:shadow-md hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-200 cursor-pointer"
-                >
-                  {brand.logo}
-                </div>
-              ))}
-            </div>
-          </div>
+        
         </motion.div>
 
       </div>

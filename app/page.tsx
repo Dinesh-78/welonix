@@ -101,8 +101,8 @@ export default function Home() {
         {/* 06 - Industry Specializations */}
         <IndustriesSection />
 
-        {/* 09 - Resources & Technical Research */}
-        <ResourcesSection />
+        {/* 09 - Frequently Asked Questions (FAQ) */}
+        <ResourcesSection onOpenDemo={() => setDemoModalOpen(true)} />
 
         {/* 10 - Final CTA */}
         <FinalCTA onOpenDemo={() => setDemoModalOpen(true)} />

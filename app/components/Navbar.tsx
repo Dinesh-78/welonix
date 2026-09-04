@@ -115,10 +115,10 @@ export default function Navbar({ onOpenDemo, onOpenAuth, theme, onToggleTheme }:
             </Link>
 
             <Link
-              href="/#resources"
+              href="/#faq"
               className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
             >
-              Resources
+              FAQ
             </Link>
                         <div
               className="relative"
@@ -145,9 +145,8 @@ export default function Navbar({ onOpenDemo, onOpenAuth, theme, onToggleTheme }:
                   <div className="col-span-5 bg-slate-50/80 dark:bg-[#040711]/90 p-3 border-r border-slate-200 dark:border-slate-800/80 max-h-[520px] overflow-y-auto space-y-1 scrollbar-thin">
                     <div className="px-3 py-1.5 flex items-center justify-between">
                       <span className="text-[10px] uppercase font-mono tracking-widest text-slate-400 font-bold">
-                        Service Categories (10)
+                        Service Categories
                       </span>
-                     
                     </div>
 
                     {SERVICE_CATEGORIES.map((cat) => {
@@ -159,22 +158,31 @@ export default function Navbar({ onOpenDemo, onOpenAuth, theme, onToggleTheme }:
                           onClick={() => {
                             setActiveCategorySlug(cat.slug);
                           }}
-                          className={`w-full text-left p-2.5 rounded-xl transition-all flex items-center justify-between text-xs group ${isActive
-                              ? "bg-blue-600 text-white shadow-md shadow-blue-600/20 font-semibold"
+                          className={`w-full text-left p-2.5 rounded-xl transition-all flex items-center justify-between text-xs group cursor-pointer ${
+                            isActive
+                              ? "bg-blue-600 text-white shadow-sm shadow-blue-600/30 font-semibold"
                               : "text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-800/60 hover:text-blue-600 dark:hover:text-white"
-                            }`}
+                          }`}
                         >
                           <div className="flex items-center gap-2.5 min-w-0">
-                            <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-colors ${isActive ? "bg-white/20 text-white" : "bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white"
-                              }`}>
+                            <div
+                              className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
+                                isActive
+                                  ? "bg-white/20 text-white"
+                                  : "bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white"
+                              }`}
+                            >
                               {ICON_MAP[cat.iconName] || <Cpu className="w-3.5 h-3.5" />}
                             </div>
                             <span className="truncate">{cat.name}</span>
                           </div>
-                          <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full shrink-0 ${isActive ? "bg-white/20 text-white" : "bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400"
-                            }`}>
-                            {cat.items.length}
-                          </span>
+                          <ChevronRight
+                            className={`w-3.5 h-3.5 shrink-0 transition-all ${
+                              isActive
+                                ? "text-white opacity-100 translate-x-0"
+                                : "text-slate-400 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0"
+                            }`}
+                          />
                         </button>
                       );
                     })}
@@ -322,7 +330,7 @@ export default function Navbar({ onOpenDemo, onOpenAuth, theme, onToggleTheme }:
           <div className="space-y-1">
             <div className="flex items-center justify-between px-3 py-1">
               <span className="text-xs uppercase font-mono tracking-widest text-slate-400 font-bold">
-                Services (10 Categories)
+                Service Categories
               </span>
               <Link
                 href="/services"
@@ -383,8 +391,8 @@ export default function Navbar({ onOpenDemo, onOpenAuth, theme, onToggleTheme }:
             <Link href="/#industries" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 text-sm font-medium">
               Industries
             </Link>
-            <Link href="/#resources" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 text-sm font-medium">
-              Resources
+            <Link href="/#faq" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 text-sm font-medium">
+              FAQ
             </Link>
           </div>
 
