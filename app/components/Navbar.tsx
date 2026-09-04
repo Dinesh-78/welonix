@@ -147,13 +147,7 @@ export default function Navbar({ onOpenDemo, onOpenAuth, theme, onToggleTheme }:
                       <span className="text-[10px] uppercase font-mono tracking-widest text-slate-400 font-bold">
                         Service Categories (10)
                       </span>
-                      <Link
-                        href="/services"
-                        onClick={() => setServicesOpen(false)}
-                        className="text-[11px] font-medium text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-0.5"
-                      >
-                        All Services <ChevronRight className="w-3 h-3" />
-                      </Link>
+                     
                     </div>
 
                     {SERVICE_CATEGORIES.map((cat) => {

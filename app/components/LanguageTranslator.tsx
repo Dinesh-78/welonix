@@ -19,15 +19,7 @@ export const INDIAN_LANGUAGES: Language[] = [
   { code: "mr", name: "Marathi", nativeName: "मराठी", shortCode: "MR" },
   { code: "gu", name: "Gujarati", nativeName: "ગુજરાતી", shortCode: "GU" },
   { code: "kn", name: "Kannada", nativeName: "ಕನ್ನಡ", shortCode: "KN" },
-  { code: "ml", name: "Malayalam", nativeName: "മലയാളം", shortCode: "ML" },
-  { code: "pa", name: "Punjabi", nativeName: "ਪੰਜਾਬੀ", shortCode: "PA" },
-  { code: "or", name: "Odia", nativeName: "ଓଡ଼ିଆ", shortCode: "OR" },
-  { code: "as", name: "Assamese", nativeName: "অসমীয়া", shortCode: "AS" },
-  { code: "ur", name: "Urdu", nativeName: "اردو", shortCode: "UR" },
-  { code: "sa", name: "Sanskrit", nativeName: "संस्कृतम्", shortCode: "SA" },
-  { code: "ne", name: "Nepali", nativeName: "नेपाली", shortCode: "NE" },
-  { code: "mai", name: "Maithili", nativeName: "मैथिली", shortCode: "MAI" },
-  { code: "sd", name: "Sindhi", nativeName: "સિંધિ", shortCode: "SD" },
+  { code: "ml", name: "Malayalam", nativeName: "മലയാളം", shortCode: "ML" }
 ];
 
 declare global {
