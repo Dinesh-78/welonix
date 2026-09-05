@@ -10,17 +10,19 @@ export interface Language {
   shortCode: string;
 }
 
-export const INDIAN_LANGUAGES: Language[] = [
+export const SUPPORTED_LANGUAGES: Language[] = [
   { code: "en", name: "English", nativeName: "English", shortCode: "EN" },
-  { code: "hi", name: "Hindi", nativeName: "हिंदी", shortCode: "HI" },
-  { code: "te", name: "Telugu", nativeName: "తెలుగు", shortCode: "TE" },
-  { code: "ta", name: "Tamil", nativeName: "தமிழ்", shortCode: "TA" },
-  { code: "bn", name: "Bengali", nativeName: "বাংলা", shortCode: "BN" },
-  { code: "mr", name: "Marathi", nativeName: "मराठी", shortCode: "MR" },
-  { code: "gu", name: "Gujarati", nativeName: "ગુજરાતી", shortCode: "GU" },
-  { code: "kn", name: "Kannada", nativeName: "ಕನ್ನಡ", shortCode: "KN" },
-  { code: "ml", name: "Malayalam", nativeName: "മലയാളം", shortCode: "ML" }
+  { code: "fr", name: "French", nativeName: "Français", shortCode: "FR" },
+  { code: "de", name: "German", nativeName: "Deutsch", shortCode: "DE" },
+  { code: "es", name: "Spanish", nativeName: "Español", shortCode: "ES" },
+  { code: "it", name: "Italian", nativeName: "Italiano", shortCode: "IT" },
+  { code: "zh-CN", name: "Chinese", nativeName: "中文", shortCode: "ZH" },
+  { code: "ja", name: "Japanese", nativeName: "日本語", shortCode: "JA" },
+  { code: "ru", name: "Russian", nativeName: "Русский", shortCode: "RU" },
+  { code: "pt", name: "Portuguese", nativeName: "Português", shortCode: "PT" }
 ];
+
+export const INDIAN_LANGUAGES = SUPPORTED_LANGUAGES;
 
 declare global {
   interface Window {
@@ -35,7 +37,7 @@ interface LanguageTranslatorProps {
 
 export default function LanguageTranslator({ isMobile = false }: LanguageTranslatorProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedLang, setSelectedLang] = useState<Language>(INDIAN_LANGUAGES[0]);
+  const [selectedLang, setSelectedLang] = useState<Language>(SUPPORTED_LANGUAGES[0]);
   const [searchQuery, setSearchQuery] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -64,10 +66,10 @@ export default function LanguageTranslator({ isMobile = false }: LanguageTransla
 
     const googTransCookie = getCookie("googtrans");
     if (googTransCookie) {
-      const match = googTransCookie.match(/\/en\/([a-z]{2,3})/i);
+      const match = googTransCookie.match(/\/en\/([a-z0-9-]{2,5})/i);
       if (match && match[1]) {
         const langCode = match[1].toLowerCase();
-        const found = INDIAN_LANGUAGES.find((l) => l.code === langCode);
+        const found = SUPPORTED_LANGUAGES.find((l) => l.code.toLowerCase() === langCode);
         if (found) {
           setSelectedLang(found);
         }
@@ -89,7 +91,7 @@ export default function LanguageTranslator({ isMobile = false }: LanguageTransla
           new window.google.translate.TranslateElement(
             {
               pageLanguage: "en",
-              includedLanguages: INDIAN_LANGUAGES.map((l) => l.code).join(","),
+              includedLanguages: SUPPORTED_LANGUAGES.map((l) => l.code).join(","),
               autoDisplay: false,
             },
             "google_translate_element"
@@ -112,35 +114,36 @@ export default function LanguageTranslator({ isMobile = false }: LanguageTransla
     if (typeof window === "undefined") return;
 
     const hostname = window.location.hostname;
+    const cookieValue = lang.code === "en" ? "/en/en" : `/en/${lang.code}`;
 
-    // Helper to set cookies across domain variations
-    const setCookie = (cookieName: string, value: string, domain?: string) => {
-      let cookieStr = `${cookieName}=${value}; path=/;`;
-      if (domain) cookieStr += ` domain=${domain};`;
-      document.cookie = cookieStr;
-    };
-
-    if (lang.code === "en") {
-      // Reset translation
-      setCookie("googtrans", "/en/en");
-      setCookie("googtrans", "/en/en", hostname);
-    } else {
-      setCookie("googtrans", `/en/${lang.code}`);
-      setCookie("googtrans", `/en/${lang.code}`, hostname);
+    // Set cookie across root path and domains
+    document.cookie = `googtrans=${cookieValue}; path=/;`;
+    if (hostname && hostname !== "localhost") {
+      document.cookie = `googtrans=${cookieValue}; path=/; domain=.${hostname};`;
+      document.cookie = `googtrans=${cookieValue}; path=/; domain=${hostname};`;
     }
 
-    // Dispatch change event to hidden Google Translate select box if available
+    if (lang.code === "en") {
+      // Clear cookie when resetting to English
+      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+      if (hostname && hostname !== "localhost") {
+        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${hostname};`;
+        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${hostname};`;
+      }
+    }
+
+    // Attempt to update Google Translate select element if initialized
     const combo = document.querySelector(".goog-te-combo") as HTMLSelectElement | null;
     if (combo) {
       combo.value = lang.code;
       combo.dispatchEvent(new Event("change"));
-    } else {
-      // Fallback: Reload page to apply google translate cookie
-      window.location.reload();
     }
+
+    // Force page reload to guarantee instant single-click translation
+    window.location.reload();
   };
 
-  const filteredLanguages = INDIAN_LANGUAGES.filter(
+  const filteredLanguages = SUPPORTED_LANGUAGES.filter(
     (l) =>
       l.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       l.nativeName.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -186,7 +189,7 @@ export default function LanguageTranslator({ isMobile = false }: LanguageTransla
                 Select Language
               </span>
               <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-medium">
-                {INDIAN_LANGUAGES.length} Languages
+                {SUPPORTED_LANGUAGES.length} Languages
               </span>
             </div>
 
@@ -258,3 +261,4 @@ export default function LanguageTranslator({ isMobile = false }: LanguageTransla
     </div>
   );
 }
+
